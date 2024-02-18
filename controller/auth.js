@@ -3,7 +3,6 @@ const User = require('../model/user');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { Strategy } = require('passport-local');
 const LocalStrategy = require('passport-local').Strategy;
 
 
