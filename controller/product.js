@@ -1,22 +1,30 @@
 const Product = require ("../model/product");
+const upload = require('../middleware/handleFile')
+const path = require('path')
+
 
 // Create Product
 
-
 const createProduct = async (req, res)=>{
     try {
-        const {title, price, productImage, product_description, quantity, categories} = req.body;
+        const {title, price, product_description, quantity, categories} = req.body;
+        const productImage = req.file.image;
         const existingProduct = await Product.findOne({tittle})
         if(existingProduct){
             return res.status(409).json({message: "Product Already Exist", success: false})
-        } 
+        }
+        if(!req.files || Object.keys(req.files).length === 0) {
+            return res.status(400).json({message: "Product image is required"})
+        }
+        const uploadPath = __dirname + '/uploads/' + productImage.name;
         const newProduct = await Product.create({
             title,
             price,
             productImage,
             product_description,
             quantity,
-            categories
+            categories,
+            productImage: uploadPath
         });
         await Product.save();
         res.json({message: "Product Added Successfully", product: newProduct })

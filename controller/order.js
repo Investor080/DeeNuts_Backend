@@ -74,3 +74,11 @@ const deleteOrder = async (req, res)=>{
         return res.status(500).json({error: "Server Error"})
     }  
 };
+
+module.exports = {
+    createOrder,
+    getSingleOrder,
+    getAllOrders,
+    updateOrder,
+    deleteOrder
+}
