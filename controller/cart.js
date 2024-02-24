@@ -19,7 +19,7 @@ const createCart = async (req, res)=>{
 
 const getSingleCart = async (req, res)=>{
     try {
-        const cart = await Product.findOne({userId: req.params.userId})
+        const cart = await Cart.findOne({userId: req.params.userId})
         res.status(200).json(cart)
     } catch (error) {
         console.log(error)
@@ -33,8 +33,8 @@ const getSingleCart = async (req, res)=>{
 
 const getAllCart = async (req, res)=>{
     try {
-        const Carts = await Cart.find();
-        return res.status(200).json({Carts})
+        const carts = await Cart.find();
+        return res.status(200).json({carts})
     } catch (error) {
         console.log(error)
         return res.status(500).json({error: "Server Error"})

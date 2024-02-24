@@ -63,7 +63,7 @@ const updateOrder = async (req, res)=>{
 };
 
 
-// Delete Carts
+// Delete Orders
 
 const deleteOrder = async (req, res)=>{
     try {

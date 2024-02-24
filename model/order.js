@@ -26,7 +26,9 @@ const orderSchema = new Schema({
     },
     status:{
         type: String,
-        default: "pending"
+        enum: [ "pending", "approved", "completed" ],
+        default: "pending",
+        required: true
     }
 },  {timestamps:true}
 );

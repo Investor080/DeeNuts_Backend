@@ -25,8 +25,13 @@ const productSchema = new Schema({
         type: Array,
     },
     status:{
+        type: String,
         enum: ["pending", "approved", "disapproved"],
         default: "pending",
         required: true
     }
 })
+
+const productModel = model('product', productSchema)
+
+module.exports = productModel

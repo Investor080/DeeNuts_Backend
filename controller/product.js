@@ -20,7 +20,6 @@ const createProduct = async (req, res)=>{
         const newProduct = await Product.create({
             title,
             price,
-            productImage,
             product_description,
             quantity,
             categories,
